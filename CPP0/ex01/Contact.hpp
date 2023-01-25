@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   megaphone.cpp                                      :+:    :+:            */
+/*   Contact.hpp                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/01/24 16:56:13 by cpost         #+#    #+#                 */
-/*   Updated: 2023/01/25 15:18:32 by cpost         ########   odam.nl         */
+/*   Created: 2023/01/25 17:05:58 by cpost         #+#    #+#                 */
+/*   Updated: 2023/01/25 18:07:47 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstring>
+#include <string>
+#include <cstddef>
 
-int	main(int argc, char *argv[])
+class Contact
 {
-	if (argc == 1)
-		std::cout << " * LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else
-	{
-		for (int i = 1; argv[i]; i++)
-		{
-			for (int x = 0; argv[i][x]; x++)
-				std::cout << (char)std::toupper(argv[i][x]);
-		}
-	}
-	std::cout << std::endl;
-	return (0);
-}
+private:
+
+	std::string	firstName;
+	std::string	lastName;
+	std::string	nickName;
+	std::string	phoneNumber;
+	std::string	darkestSecret;
+
+	bool		strIsDigits(std::string const &str);
+	std::string	getLine(std::string info, bool phone = false);
+
+public:
+	
+	Contact(void);
+	~Contact(void);
+	void	getInfo(void);
+};

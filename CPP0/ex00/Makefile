@@ -6,7 +6,7 @@
 #    By: cpost <cpost@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/24 17:00:11 by cpost         #+#    #+#                  #
-#    Updated: 2023/01/24 17:41:14 by cpost         ########   odam.nl          #
+#    Updated: 2023/01/25 15:18:48 by cpost         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJS_DIR = objs
 
 # INC := -I $(INCLUDE_DIR)
 
-SRCS = megaphone.cpp
+SRCS = Megaphone.cpp
 
 OBJS = $(SRCS:.c=.o)
 
