@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   phonebook.hpp                                      :+:    :+:            */
+/*   PhoneBook.hpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 14:46:27 by cpost         #+#    #+#                 */
-/*   Updated: 2023/01/25 17:06:14 by cpost         ########   odam.nl         */
+/*   Updated: 2023/01/26 18:08:19 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Contact.hpp"
 
 class PhoneBook
 {
 private:
-	static int	i;
-	char		*contacts[9];
+
+	Contact	mContact[8];
+	int		mContactNum;
+
 public:
-	PhoneBook(/* args */);
-	~PhoneBook();
+	
+	PhoneBook(void);
+	~PhoneBook(void);
+	int		getContactNum(void);
+	void	setContactNum(int newNum);
+	void	addNewContact(void);
+	void	searchContact(void);
+	
 };
-
-phonebook::phonebook(/* args */)
-{
-}
-
-phonebook::~phonebook()
-{
-}
 

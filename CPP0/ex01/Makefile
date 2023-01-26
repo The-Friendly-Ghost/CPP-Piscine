@@ -6,7 +6,7 @@
 #    By: cpost <cpost@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/24 17:00:11 by cpost         #+#    #+#                  #
-#    Updated: 2023/01/26 18:53:12 by cpost         ########   odam.nl          #
+#    Updated: 2023/01/26 18:56:29 by cpost         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,16 @@
 #========= General variables =========#
 #=====================================#
 
-NAME = megaphone
+NAME = phonebook
 OBJS_DIR = objs
 
 #=====================================#
 #============ Input files ============#
 #=====================================#
 
-SRCS = Megaphone.cpp
+SRCS = 	Contact.cpp\
+		Phonebook.cpp\
+		main.cpp
 
 OBJS = $(SRCS:.c=.o)
 

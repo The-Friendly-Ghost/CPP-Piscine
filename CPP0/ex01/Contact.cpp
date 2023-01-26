@@ -6,13 +6,14 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 17:06:03 by cpost         #+#    #+#                 */
-/*   Updated: 2023/01/25 18:15:01 by cpost         ########   odam.nl         */
+/*   Updated: 2023/01/26 19:03:31 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Contact.hpp>
+#include "Contact.hpp"
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 Contact::Contact(void)
 {
@@ -30,30 +31,75 @@ bool	Contact::strIsDigits(std::string const &str)
 		== std::string::npos);
 }
 
-std::string	Contact::getLine(std::string info, bool phone = false)
+std::string	Contact::getInput(std::string info, bool phone)
 {
 	std::string	return_value;
 
+	std::cout << "\x1B[2J\x1B[H";
 	std::cout << "Enter " << info << std::endl;
-	std::getline(std::cin, return_value);
 	while (return_value.empty() == true)
 	{
-		std::cout << "No input found. Try again" << std::endl;
+		std::cout << "\x1B[2J\x1B[H";
+		std::cout << "Enter " << info << std::endl;
 		std::getline(std::cin, return_value);
 	}
-	while (phone == true && strIsDigits(return_value) == false)
+	while (phone == true && (strIsDigits(return_value) == false
+		|| return_value.empty() == true))
 	{
+		std::cout << "\x1B[2J\x1B[H";
 		std::cout << "Invalid phone number. Try again" << std::endl;
 		std::getline(std::cin, return_value);
 	}
 	return (return_value);
 }
 
-void	Contact::getInfo()
+void	Contact::getInfo(void)
 {
-	firstName = getLine("first name");
-	lastName = getLine("last name");
-	nickName = getLine("nickname");
-	phoneNumber = getLine("phone number", true);
-	darkestSecret = getLine("darkest secret");
+	this->mFirstName = getInput("first name");
+	this->mLastName = getInput("last name");
+	this->mNickName = getInput("nickname");
+	this->mPhoneNumber = getInput("phone number", true);
+	this->mDarkestSecret = getInput("darkest secret");
+	std::cout << "\x1B[2J\x1B[H";
+}
+
+void	Contact::printInfo(std::string info, bool printLine)
+{
+	if (printLine == true)
+		std::cout << info << std::endl;
+	else
+	{
+		if (info.size() <= 10)
+			std::cout << std::setw(10) << info << '|';
+		else
+		{
+			for (int i = 0; i < 9; i++)
+				std::cout << info[i];
+			std::cout << ".|";
+		}
+	}
+}
+
+bool	Contact::contactIsEmpty(void)
+{
+	return (this->mFirstName.empty());
+}
+
+void	Contact::printContact(bool printLine)
+{
+	if (printLine == true && this->mFirstName.empty())
+	{
+		std::cout << "Empty contact selected." << std::endl;
+		return ;
+	}
+	printInfo(this->mFirstName, printLine);
+	printInfo(this->mLastName, printLine);
+	printInfo(this->mNickName, printLine);
+	if (printLine == true)
+	{
+		printInfo(this->mPhoneNumber, printLine);
+		printInfo(this->mDarkestSecret, printLine);
+	}
+	else
+		std::cout << std::endl;
 }
