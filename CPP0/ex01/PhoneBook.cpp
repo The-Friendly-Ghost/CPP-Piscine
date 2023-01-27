@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   phonebook.cpp                                      :+:    :+:            */
+/*   PhoneBook.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 14:55:11 by cpost         #+#    #+#                 */
-/*   Updated: 2023/01/26 19:13:43 by cpost         ########   odam.nl         */
+/*   Updated: 2023/01/27 17:43:15 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	PhoneBook::searchContact(void)
 	}
 	std::cout << "Enter Index: ";
 	std::cin >> input;
+	if (std::cin.eof())
+			exit(0);
 	if (input.std::string::find_first_of("12345678") 
 		!= std::string::npos && input.length() == 1)
 		this->mContact[std::stoi(input) - 1].printContact(true);

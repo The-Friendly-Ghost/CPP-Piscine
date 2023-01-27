@@ -6,13 +6,14 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 15:56:56 by cpost         #+#    #+#                 */
-/*   Updated: 2023/01/26 18:30:29 by cpost         ########   odam.nl         */
+/*   Updated: 2023/01/27 13:48:20 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <fstream>
 
 int	main(void)
 {
@@ -28,7 +29,7 @@ int	main(void)
 			phoneBook.addNewContact();
 		else if (!input.compare("SEARCH"))
 			phoneBook.searchContact();
-		else if (!input.compare("EXIT"))
+		else if (!input.compare("EXIT") || std::cin.eof())
 			break ;
 		else
 		{

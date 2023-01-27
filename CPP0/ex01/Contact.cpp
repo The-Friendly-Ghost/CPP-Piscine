@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 17:06:03 by cpost         #+#    #+#                 */
-/*   Updated: 2023/01/26 19:03:31 by cpost         ########   odam.nl         */
+/*   Updated: 2023/01/27 17:42:52 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ std::string	Contact::getInput(std::string info, bool phone)
 		std::cout << "\x1B[2J\x1B[H";
 		std::cout << "Enter " << info << std::endl;
 		std::getline(std::cin, return_value);
+		if (std::cin.eof())
+			exit(0);
 	}
 	while (phone == true && (strIsDigits(return_value) == false
 		|| return_value.empty() == true))
