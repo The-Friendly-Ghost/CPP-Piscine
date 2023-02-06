@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   newZombie.cpp                                      :+:    :+:            */
+/*   ZombieHorde.cpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/01/27 19:27:54 by cpost         #+#    #+#                 */
-/*   Updated: 2023/02/06 11:16:32 by cpost         ########   odam.nl         */
+/*   Created: 2023/02/06 14:16:45 by cpost         #+#    #+#                 */
+/*   Updated: 2023/02/06 16:19:47 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
-Zombie	*newZombie(std::string name)
+Zombie  *zombieHorde(int N, std::string name)
 {
-	return (new Zombie(name));
+	Zombie	*horde;
+
+	horde = new Zombie[N];
+	for (int i = 0; i < N; i++)
+		horde[i].setZombieName(name);
+	return (horde);
 }

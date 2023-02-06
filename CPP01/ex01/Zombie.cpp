@@ -1,18 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   newZombie.cpp                                      :+:    :+:            */
+/*   Zombie.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/01/27 19:27:54 by cpost         #+#    #+#                 */
-/*   Updated: 2023/02/06 11:16:32 by cpost         ########   odam.nl         */
+/*   Created: 2023/02/06 14:16:27 by cpost         #+#    #+#                 */
+/*   Updated: 2023/02/06 16:30:16 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
-Zombie	*newZombie(std::string name)
+Zombie::Zombie(void)
 {
-	return (new Zombie(name));
+
+}
+
+Zombie::Zombie(std::string name) : mName(name)
+{
+
+}
+
+Zombie::~Zombie(void)
+{
+    
+}
+
+void    Zombie::setZombieName(std::string name)
+{
+    this->mName = name;
+}
+
+void    Zombie::announce(void)
+{
+    std::cout << this->mName << " wants BRAIIINZZZ..." << std::endl;
 }
