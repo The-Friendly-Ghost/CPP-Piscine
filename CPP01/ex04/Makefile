@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: cpost <cpost@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
-#    Created: 2023/02/06 17:46:05 by cpost         #+#    #+#                  #
-#    Updated: 2023/02/07 14:04:16 by cpost         ########   odam.nl          #
+#    Created: 2023/02/07 14:18:20 by cpost         #+#    #+#                  #
+#    Updated: 2023/02/07 14:18:35 by cpost         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,17 +14,14 @@
 #========= General variables =========#
 #=====================================#
 
-NAME = Unnecessary_violence
+NAME = Sed_is_for_losers
 OBJS_DIR = objs
 
 #=====================================#
 #============ Input files ============#
 #=====================================#
 
-SRCS = 	main.cpp\
-		HumanA.cpp\
-		Weapon.cpp\
-		HumanB.cpp
+SRCS = 	main.cpp
 
 OBJS = $(SRCS:.c=.o)
 
