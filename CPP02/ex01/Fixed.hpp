@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Fixed.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/02/13 16:52:05 by cpost         #+#    #+#                 */
-/*   Updated: 2023/02/16 12:15:13 by cpost         ########   odam.nl         */
+/*   Created: 2023/02/13 16:52:21 by cpost         #+#    #+#                 */
+/*   Updated: 2023/02/16 17:05:49 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
-int	main(void)
+class Fixed
 {
-	Fixed	a;
-	Fixed	b(a);
-	Fixed	c;
+private:
 
-	c = b;
-	std::cout << "A value = " << a.getRawBits() << std::endl;
-	std::cout << "B value = " << b.getRawBits() << std::endl;
-	std::cout << "C value = " << c.getRawBits() << std::endl;
-}
+	int	value;
+	static const int bits = 8;
+
+public:
+	Fixed(void);
+	Fixed(const int value);
+	Fixed(const float value);
+	~Fixed(void);
+	Fixed(const Fixed &copy);
+	Fixed& operator=(const Fixed &other);
+	int		getRawBits(void)const;
+	void	setRawBits(int const raw);
+	float	toFloat(void) const;
+	int		toInt(void) const;
+	friend	std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
+};

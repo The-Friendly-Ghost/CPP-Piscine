@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: cpost <cpost@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
-#    Created: 2023/02/12 17:13:33 by cpost         #+#    #+#                  #
-#    Updated: 2023/02/16 16:29:27 by cpost         ########   odam.nl          #
+#    Created: 2023/02/06 11:26:47 by cpost         #+#    #+#                  #
+#    Updated: 2023/02/16 16:28:53 by cpost         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #========= General variables =========#
 #=====================================#
 
-NAME = Harl_2.0
+NAME = My_First_Class_In_Canonical_Form
 OBJS_DIR = objs
 
 #=====================================#
@@ -22,7 +22,7 @@ OBJS_DIR = objs
 #=====================================#
 
 SRCS = 	main.cpp\
-		Harl.cpp
+		Fixed.cpp
 
 OBJS = $(SRCS:.c=.o)
 

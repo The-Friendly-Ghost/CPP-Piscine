@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/13 16:52:05 by cpost         #+#    #+#                 */
-/*   Updated: 2023/02/16 12:15:13 by cpost         ########   odam.nl         */
+/*   Updated: 2023/02/16 17:20:31 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,19 @@
 int	main(void)
 {
 	Fixed	a;
-	Fixed	b(a);
-	Fixed	c;
+	Fixed	const b(10);
+	Fixed	const c(42.42f);
+	Fixed	const d(b);
 
-	c = b;
-	std::cout << "A value = " << a.getRawBits() << std::endl;
-	std::cout << "B value = " << b.getRawBits() << std::endl;
-	std::cout << "C value = " << c.getRawBits() << std::endl;
+	a = Fixed(1234.4321f);
+	
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 }
