@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/20 11:42:49 by cpost         #+#    #+#                 */
-/*   Updated: 2023/02/20 17:11:35 by cpost         ########   odam.nl         */
+/*   Updated: 2023/02/21 15:11:32 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,28 +174,28 @@ Fixed	Fixed::operator--(int)
 	return (*this);
 }
 
-Fixed&	Fixed::min(Fixed &a, Fixed &b)
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
 {
 	if (a <= b)
 		return (a);
 	return (b);
 }
 
-Fixed&	Fixed::max(Fixed &a, Fixed &b)
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
 {
 	if (a >= b)
 		return (a);
 	return (b);
 }
 
-const Fixed&	Fixed::max(const Fixed &a, const Fixed &b)
+const Fixed	&Fixed::min(const Fixed &a, const Fixed &b)
 {
 	if (a <= b)
 		return (a);
 	return (b);
 }
 
-const Fixed&	Fixed::max(const Fixed &a, const Fixed &b)
+const Fixed	&Fixed::max(const Fixed &a, const Fixed &b)
 {
 	if (a >= b)
 		return (a);
