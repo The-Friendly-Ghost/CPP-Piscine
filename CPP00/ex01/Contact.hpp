@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 17:05:58 by cpost         #+#    #+#                 */
-/*   Updated: 2023/01/26 18:15:23 by cpost         ########   odam.nl         */
+/*   Updated: 2023/02/21 13:27:32 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ private:
 	std::string	mPhoneNumber;
 	std::string	mDarkestSecret;
 
-	bool		strIsDigits(std::string const &str);
+	bool		strIsDigits(std::string const &str) const;
+	bool		strHasTabs(std::string const &str) const;
+	bool		strIsEmpty(std::string const &str) const;
 	std::string	getInput(std::string info, bool phone = false);
 	void		printInfo(std::string info, bool printLine);
 

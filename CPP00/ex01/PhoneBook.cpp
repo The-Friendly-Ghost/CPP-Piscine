@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 14:55:11 by cpost         #+#    #+#                 */
-/*   Updated: 2023/01/27 17:43:15 by cpost         ########   odam.nl         */
+/*   Updated: 2023/02/21 14:12:07 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	PhoneBook::searchContact(void)
 		this->mContact[i].printContact(false);
 	}
 	std::cout << "Enter Index: ";
-	std::cin >> input;
+	std::getline(std::cin, input);
 	if (std::cin.eof())
 			exit(0);
 	if (input.std::string::find_first_of("12345678") 

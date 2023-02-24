@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 15:56:56 by cpost         #+#    #+#                 */
-/*   Updated: 2023/01/27 13:48:20 by cpost         ########   odam.nl         */
+/*   Updated: 2023/02/21 14:09:50 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	main(void)
 	while (1)
 	{
 		std::cout << "Command: ";
-		std::cin >> input;
-		if (!input.compare("ADD"))
-			phoneBook.addNewContact();
-		else if (!input.compare("SEARCH"))
-			phoneBook.searchContact();
-		else if (!input.compare("EXIT") || std::cin.eof())
+		std::getline(std::cin, input);
+		if (input == "EXIT" || std::cin.eof())
 			break ;
+		else if (input == "ADD")
+			phoneBook.addNewContact();
+		else if (input == "SEARCH")
+			phoneBook.searchContact();
 		else
 		{
 			std::cout << "\x1B[2J\x1B[H";

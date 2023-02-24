@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/25 17:06:03 by cpost         #+#    #+#                 */
-/*   Updated: 2023/01/27 17:42:52 by cpost         ########   odam.nl         */
+/*   Updated: 2023/02/21 13:55:05 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,42 @@ Contact::~Contact(void)
 	return ;
 }
 
-bool	Contact::strIsDigits(std::string const &str)
+bool	Contact::strHasTabs(std::string const &str) const
+{
+	int	const 	length = str.length();
+
+	for (int i = 0; i < length; i++)
+	{
+		if (str[i] == '\t')
+			return (true);
+	}
+	return (false);
+}
+
+bool	Contact::strIsDigits(std::string const &str) const
 {
 	return (str.std::string::find_first_not_of("0123456789") 
 		== std::string::npos);
+}
+
+bool	Contact::strIsEmpty(std::string const &str) const
+{
+	int	const 	length = str.length();
+
+	for (int i = 0; i < length; i++)
+	{
+		if (isprint((int)str[i]) && str[i] != ' ')
+			return (false);
+	}
+	return (true);
 }
 
 std::string	Contact::getInput(std::string info, bool phone)
 {
 	std::string	return_value;
 
-	std::cout << "\x1B[2J\x1B[H";
-	std::cout << "Enter " << info << std::endl;
-	while (return_value.empty() == true)
+	while (return_value.empty() == true || strHasTabs(return_value) == true 
+		|| strIsEmpty(return_value) == true)
 	{
 		std::cout << "\x1B[2J\x1B[H";
 		std::cout << "Enter " << info << std::endl;
@@ -51,6 +74,8 @@ std::string	Contact::getInput(std::string info, bool phone)
 		std::cout << "\x1B[2J\x1B[H";
 		std::cout << "Invalid phone number. Try again" << std::endl;
 		std::getline(std::cin, return_value);
+		if (std::cin.eof())
+			exit(0);
 	}
 	return (return_value);
 }
