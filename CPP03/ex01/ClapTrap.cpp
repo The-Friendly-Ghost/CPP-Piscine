@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/24 14:09:25 by cpost         #+#    #+#                 */
-/*   Updated: 2023/02/27 17:18:52 by cpost         ########   odam.nl         */
+/*   Updated: 2023/02/28 15:41:37 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap(void) :
 	mEnergyPnts(10),
 	mAttackDmg(0)
 {
-	std::cout << "Claptrap constructor called for " << this->mName;
+	std::cout << "Claptrap constructor called";
 	std::cout << std::endl;
 }
 
@@ -31,25 +31,35 @@ ClapTrap::ClapTrap(std::string newName) :
 	mEnergyPnts(10),
 	mAttackDmg(0)
 {
-	std::cout << "Claptrap constructor called for " << this->mName;
+	std::cout << "Claptrap constructor called";
+	std::cout << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string newName, int hitPoints, int energy, int attackDmg) :
+	mName(newName),
+	mHitPoints(hitPoints),
+	mEnergyPnts(energy),
+	mAttackDmg(attackDmg)
+{
+	std::cout << "Claptrap constructor called";
 	std::cout << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
-	std::cout << "Claptrap copy constructor called for ";
-	std::cout << copy.getName() << std::endl;
+	std::cout << "Claptrap copy constructor called";
+	std::cout << std::endl;
 	*this = copy;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Claptrap destructor called for " << this->mName << std::endl;
+	std::cout << "Claptrap destructor called" << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &other)
 {
-	std::cout << "Assignment operator called for " << other.getName();
+	std::cout << "Claptrap assignment operator called";
 	std::cout << std::endl;
 	this->mAttackDmg = other.getAttackDmg();
 	this->mName = other.getName();

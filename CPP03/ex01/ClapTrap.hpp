@@ -6,15 +6,18 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/24 14:09:02 by cpost         #+#    #+#                 */
-/*   Updated: 2023/02/27 17:22:21 by cpost         ########   odam.nl         */
+/*   Updated: 2023/02/28 15:38:14 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include <string>
 
 class ClapTrap
 {
-private:
+protected:
 	std::string	mName;
 	int			mHitPoints;
 	int			mEnergyPnts;
@@ -27,6 +30,7 @@ private:
 public:
 	ClapTrap(void);
 	ClapTrap(std::string newName);
+	ClapTrap(std::string newName, int hitPoints, int energy, int attackDmg);
 	~ClapTrap(void);
 	ClapTrap(const ClapTrap &copy);
 	ClapTrap	&operator=(const ClapTrap &other);
@@ -35,3 +39,5 @@ public:
 	void		takeDamage(unsigned int amount);
 	void		beRepaired(unsigned int amount);
 };
+
+#endif
