@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/24 14:09:25 by cpost         #+#    #+#                 */
-/*   Updated: 2023/02/28 18:06:31 by cpost         ########   odam.nl         */
+/*   Updated: 2023/02/28 17:53:14 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,8 +122,8 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << std::endl << "[TAKE DAMAGE]" << std::endl;
 	if (this->mHitPoints <= 0)
 	{
-		std::cout << "Action not possible." << this->mName << " has " << this->mHitPoints;
-		std::cout << " left." << std::endl;
+		std::cout << "Action not possible. " << this->mName << " has ";
+		std::cout << this->mHitPoints << " left." << std::endl;
 	}
 	else
 	{
