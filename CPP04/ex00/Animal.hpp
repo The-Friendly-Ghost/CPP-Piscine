@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   FlagTrap.hpp                                       :+:    :+:            */
+/*   Animal.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/02/24 14:09:02 by cpost         #+#    #+#                 */
-/*   Updated: 2023/03/01 11:58:08 by cpost         ########   odam.nl         */
+/*   Created: 2023/03/01 12:04:57 by cpost         #+#    #+#                 */
+/*   Updated: 2023/03/02 14:00:53 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FLAGTRAP_HPP
-#define FLAGTRAP_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <string>
-#include "ClapTrap.hpp"
 
-class FlagTrap : public ClapTrap
+class Animal
 {
-private:
+protected:
+	std::string	mType;
 
 public:
-	FlagTrap(void);
-	FlagTrap(std::string newName);
-	FlagTrap(const FlagTrap &copy);
-	~FlagTrap(void);
-	FlagTrap	&operator=(const FlagTrap &other);
-	void	highFivesGuys(void);
+	Animal(void);
+	Animal(std::string newType);
+	~Animal(void);
+	Animal(const Animal &copy);
+	Animal	&operator=(const Animal &other);
+	void	makeSound(void);
 };
 
 #endif
