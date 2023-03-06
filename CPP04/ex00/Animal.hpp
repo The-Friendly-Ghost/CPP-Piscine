@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 12:04:57 by cpost         #+#    #+#                 */
-/*   Updated: 2023/03/02 14:00:53 by cpost         ########   odam.nl         */
+/*   Updated: 2023/03/06 16:59:08 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ protected:
 public:
 	Animal(void);
 	Animal(std::string newType);
-	~Animal(void);
+	virtual ~Animal(void);
 	Animal(const Animal &copy);
 	Animal	&operator=(const Animal &other);
-	void	makeSound(void);
+	virtual void	makeSound(void) const;
+	std::string		getType(void) const;
 };
 
 #endif

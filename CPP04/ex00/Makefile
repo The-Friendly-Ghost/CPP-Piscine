@@ -6,7 +6,7 @@
 #    By: cpost <cpost@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/02/06 11:26:47 by cpost         #+#    #+#                  #
-#    Updated: 2023/03/01 12:03:48 by cpost         ########   odam.nl          #
+#    Updated: 2023/03/06 17:03:55 by cpost         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ OBJS_DIR = objs
 SRCS = 	main.cpp\
 		Animal.cpp\
 		Cat.cpp\
-		Dog.cpp
+		Dog.cpp\
+		WrongAnimal.cpp\
+		WrongCat.cpp
 
 OBJS = $(SRCS:.c=.o)
 
