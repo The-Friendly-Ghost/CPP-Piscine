@@ -6,7 +6,7 @@
 #    By: cpost <cpost@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/02/06 11:26:47 by cpost         #+#    #+#                  #
-#    Updated: 2023/03/08 16:31:26 by cpost         ########   odam.nl          #
+#    Updated: 2023/03/08 17:13:15 by cpost         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #========= General variables =========#
 #=====================================#
 
-NAME = I_dont_want_to_set_the_world_on_fire
+NAME = Abstract_class
 OBJS_DIR = objs
 
 #=====================================#

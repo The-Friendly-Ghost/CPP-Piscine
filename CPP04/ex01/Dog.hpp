@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   Dog.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/01 12:04:57 by cpost         #+#    #+#                 */
-/*   Updated: 2023/03/08 17:20:33 by cpost         ########   odam.nl         */
+/*   Created: 2023/03/06 14:37:30 by cpost         #+#    #+#                 */
+/*   Updated: 2023/03/08 15:10:19 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include <string>
+#include "Animal.hpp"
 #include "Brain.hpp"
+#include <string>
 
-class Animal
+class Dog : public Animal
 {
-protected:
-	std::string	mType;
+private:
+    Brain   *mDogBrain;
 
 public:
-	Animal(void);
-	Animal(std::string newType);
-	virtual ~Animal(void);
-	Animal(const Animal &copy);
-	Animal	&operator=(const Animal &other);
-	virtual void	makeSound(void) const;
-	std::string		getType(void) const;
-	virtual Brain	*getBrain(void) const = 0;
+    Dog(void);
+    ~Dog(void);
+    Dog(const Dog &other);
+    Dog &operator=(const Dog &other);
+    void makeSound(void) const;
+    Brain   *getBrain(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/06 12:57:19 by cpost         #+#    #+#                 */
-/*   Updated: 2023/03/08 17:14:31 by cpost         ########   odam.nl         */
+/*   Updated: 2023/03/08 17:19:33 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 #include "Cat.hpp"
 #include <iostream>
 
-void	leak_check(void)
-{
-	system("leaks -q I_dont_want_to_set_the_world_on_fire");
-}
-
 int	main(void)
 {
 	{
 		Animal	*animals[10];
+		//Animal	doesntwork;
 
 		std::cout << std::endl << "--- CONSTRUCTING ANIMALS ---" << std::endl;
 		for (int i = 0; i < 10; i++)
@@ -89,6 +85,6 @@ int	main(void)
 	std::cout << "- DECONSTRUCTING CAT ---" << std::endl;
 	delete i;
 	std::cout << std::endl << std::endl << std::endl;
-	atexit(leak_check);
 	return (0);
 }
+

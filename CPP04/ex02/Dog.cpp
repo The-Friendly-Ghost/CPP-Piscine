@@ -1,54 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.cpp                                            :+:    :+:            */
+/*   Dog.cpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/06 14:58:38 by cpost         #+#    #+#                 */
-/*   Updated: 2023/03/08 15:18:31 by cpost         ########   odam.nl         */
+/*   Updated: 2023/03/08 15:19:49 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 #include "Animal.hpp"
 #include <iostream>
 
-Cat::Cat(void) :
-    Animal("Cat")
+Dog::Dog(void) :
+    Animal("Dog")
 {
-    std::cout << "Cat Constructor Called" << std::endl;
-    this->mCatBrain = new Brain();
+    std::cout << "Dog Constructor Called" << std::endl;
+    this->mDogBrain = new Brain();
 }
 
-Cat::~Cat(void)
+Dog::~Dog(void)
 {
-    delete this->mCatBrain;
-    std::cout << "Cat Destructor Called" << std::endl;
+    delete this->mDogBrain;
+    std::cout << "Dog Destructor Called" << std::endl;
 }
 
-Cat::Cat(const Cat &other) :
-    Animal("Cat")
+Dog::Dog(const Dog &other) :
+    Animal("Dog")
 {
-    std::cout << "Cat Copy Constructor Called" << std::endl;
+    std::cout << "Dog Copy Constructor Called" << std::endl;
     this->mType = other.getType();
-    this->mCatBrain = new Brain(*other.getBrain());
+    this->mDogBrain = new Brain(*other.getBrain());
 }
 
-Cat &Cat::operator=(const Cat &other)
+Dog &Dog::operator=(const Dog &other)
 {
-    std::cout << "Cat Assignment Operator Called" << std::endl;
+    std::cout << "Dog Assignment Operator Called" << std::endl;
     this->mType = other.getType();
-    this->mCatBrain = new Brain(*other.getBrain());
+    this->mDogBrain = new Brain(*other.getBrain());
     return (*this);
 }
 
-void    Cat::makeSound(void) const
+void    Dog::makeSound(void) const
 {
-    std::cout << "MIAAAAUW! PRRR!" << std::endl;
+    std::cout << "WUUFFFF!" << std::endl;
 }
 
-Brain   *Cat::getBrain(void) const
+Brain   *Dog::getBrain(void) const
 {
-    return (this->mCatBrain);
+    return (this->mDogBrain);
 }

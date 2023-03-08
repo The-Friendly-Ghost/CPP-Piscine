@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/01 12:04:57 by cpost         #+#    #+#                 */
-/*   Updated: 2023/03/06 16:59:08 by cpost         ########   odam.nl         */
+/*   Updated: 2023/03/08 16:38:50 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ANIMAL_HPP
 
 #include <string>
+#include "Brain.hpp"
 
 class Animal
 {
