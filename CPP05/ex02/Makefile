@@ -6,7 +6,7 @@
 #    By: cpost <cpost@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/03/09 13:39:37 by cpost         #+#    #+#                  #
-#    Updated: 2023/03/10 14:03:36 by cpost         ########   odam.nl          #
+#    Updated: 2023/03/13 15:31:37 by cpost         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ OBJS_DIR = objs
 
 SRCS = 	main.cpp\
 		Bureaucrat.cpp\
-		AForm.cpp
+		AForm.cpp\
+		ShubberyCreationForm.cpp
 
 OBJS = $(SRCS:.c=.o)
 

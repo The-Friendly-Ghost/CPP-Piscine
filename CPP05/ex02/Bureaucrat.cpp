@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/09 13:41:31 by cpost         #+#    #+#                 */
-/*   Updated: 2023/03/10 14:03:25 by cpost         ########   odam.nl         */
+/*   Updated: 2023/03/13 15:58:14 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void    Bureaucrat::decrementGrade(void)
     this->mGrade += 1;
 }
 
-void    Bureaucrat::signForm(Form &toSign)
+void    Bureaucrat::signForm(AForm &toSign)
 {
     try
     {

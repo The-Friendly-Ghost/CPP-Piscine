@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/09 13:41:11 by cpost         #+#    #+#                 */
-/*   Updated: 2023/03/10 14:03:29 by cpost         ########   odam.nl         */
+/*   Updated: 2023/03/13 16:03:45 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include <string>
 #include "AForm.hpp"
 
-// Declaring Form Class, because Ubuntu...
-class   Form;
+// Declaring Form Class, because.. weird ...
+class   AForm;
 
 class Bureaucrat
 {
@@ -35,7 +35,7 @@ public:
 
     void    incrementGrade(void);
     void    decrementGrade(void);
-    void    signForm(Form &toSign);
+    void    signForm(AForm &toSign);
 
     class   GradeTooHighException : public std::exception
     {

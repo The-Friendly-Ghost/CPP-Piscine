@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/09 17:35:27 by cpost         #+#    #+#                 */
-/*   Updated: 2023/03/10 14:08:44 by cpost         ########   odam.nl         */
+/*   Updated: 2023/03/13 16:18:52 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ AForm::AForm(void) :
     mSignGrade(150),
     mExecGrade(150)
 {
-    std::cout << "Form Constructor Called for form: blanc" << std::endl;
+    std::cout << "Form Constructor Called for AForm" << std::endl;
 }
 
 AForm::AForm(std::string name, const int signGrade, const int execGrade) :
@@ -37,7 +37,7 @@ AForm::AForm(std::string name, const int signGrade, const int execGrade) :
         throw(GradeTooHighException());
     else if (mSignGrade > 150 || mExecGrade > 150)
         throw(GradeTooLowException());
-    std::cout << "Form Constructor Called for form: " << mName << std::endl;
+    std::cout << "Form Constructor Called for AForm" << std::endl;
 }
 
 AForm::AForm(const AForm &copy) :
@@ -51,7 +51,7 @@ AForm::AForm(const AForm &copy) :
 
 AForm::~AForm(void)
 {
-    std::cout << "Deconstructor Called for form: " << this->mName << std::endl;
+    std::cout << "Deconstructor Called for AForm" << std::endl;
 }
 
 //=====================================//
@@ -86,6 +86,11 @@ const char  *AForm::GradeTooHighException::what(void) const throw()
 const char  *AForm::GradeTooLowException::what(void) const throw()
 {
     return ("Grade Too Low");
+}
+
+const char  *AForm::FormNotSigned::what (void) const throw()
+{
+    return ("Form Not Signed");
 }
 
 
