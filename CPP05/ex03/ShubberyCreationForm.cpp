@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   RobotomyRequestForm.cpp                            :+:    :+:            */
+/*   ShubberyCreationForm.cpp                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/13 13:23:54 by cpost         #+#    #+#                 */
-/*   Updated: 2023/03/14 13:09:06 by cpost         ########   odam.nl         */
+/*   Updated: 2023/03/13 16:19:34 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "ShubberyCreationForm.hpp"
 #include "AForm.hpp"
 #include <fstream>
 #include <iostream>
@@ -19,37 +19,37 @@
 //=== Constructors / Deconstructor ====//
 //=====================================//
 
-RobotomyRequestForm::RobotomyRequestForm(void) :
-    AForm("Shubbery Creation Form", 72, 45),
+ShubberyCreationForm::ShubberyCreationForm(void) :
+    AForm("Shubbery Creation Form", 145, 137),
     mTarget("Default")
 {
-    std::cout << "Constructor Called: RobotomyRequestForm" << std::endl;
+    std::cout << "Constructor Called: ShubberyCreationForm" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) :
-    AForm(target, 72, 45),
+ShubberyCreationForm::ShubberyCreationForm(std::string target) :
+    AForm(target, 145, 137),
     mTarget(target)
 {
-    std::cout << "Constructor Called: RobotomyRequestForm" << std::endl;
+    std::cout << "Constructor Called: ShubberyCreationForm" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy) :
-    AForm(copy.getTarget(), 72, 45),
+ShubberyCreationForm::ShubberyCreationForm(ShubberyCreationForm const &copy) :
+    AForm(copy.getTarget(), 145, 137),
     mTarget(copy.getTarget()) 
 {
-    std::cout << "Copy Constructor Called: RobotomyRequestForm" << std::endl;
+    std::cout << "Copy Constructor Called: ShubberyCreationForm" << std::endl;
 }
 
-RobotomyRequestForm::~RobotomyRequestForm(void)
+ShubberyCreationForm::~ShubberyCreationForm(void)
 {
-    std::cout << "Deconstructor Called: RobotomyRequestForm" << std::endl;
+    std::cout << "Deconstructor Called: ShubberyCreationForm" << std::endl;
 }
 
 //=====================================//
 //========= Operator Overload =========//
 //=====================================//
 
-RobotomyRequestForm    &RobotomyRequestForm::operator=(RobotomyRequestForm const &rhs)
+ShubberyCreationForm    &ShubberyCreationForm::operator=(ShubberyCreationForm const &rhs)
 {
     this->mTarget = rhs.getTarget();
     return (*this);
@@ -59,7 +59,7 @@ RobotomyRequestForm    &RobotomyRequestForm::operator=(RobotomyRequestForm const
 //=============== Getter ==============//
 //=====================================//
 
-std::string RobotomyRequestForm::getTarget(void) const
+std::string ShubberyCreationForm::getTarget(void) const
 {
     return (this->mTarget);
 }
@@ -68,7 +68,7 @@ std::string RobotomyRequestForm::getTarget(void) const
 //================ Other ==============//
 //=====================================//
 
-void    RobotomyRequestForm::execute(Bureaucrat const &executor) const
+void    ShubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     // Check whether a bureaucrat if allowed to sign the form or if the
     // form has already been signed.
@@ -87,11 +87,22 @@ void    RobotomyRequestForm::execute(Bureaucrat const &executor) const
         return ;
     }
 
-    srand((unsigned int)time(NULL));
-    int random = rand();
-    // Uses randomizer to get a 50% chance for success.
-    if (random % 2 == 0)
-        std::cout << this->getTarget() << " has been robotomized" << " --- num = " << random << std::endl;
-    else
-        std::cout << "Robotimizatin failed on " << this->getTarget() << " --- num = " << random << std::endl;
+    // Create the file where the ASCII tree has to be written to.
+    std::ofstream   outFile(this->mTarget + "_shubbery");
+
+    // Draw Ascii trees and display message that form has been signed.
+    outFile << "           _-_    " << std::endl;
+    outFile << "    /~~    ~~\\   " << std::endl;
+    outFile << "  /~~        ~~\\ " << std::endl;
+    outFile << " |              | " << std::endl;
+    outFile << " \\  _-     -_  / " << std::endl;
+    outFile << "   ~  \\  /  ~    " << std::endl;
+    outFile << "_- -   | | _- _   " << std::endl;
+    outFile << "  _ -  | |   -_   " << std::endl;
+    outFile << "       / \\       " << std::endl;
+    
+    std::cout << this->getFormName() << " has been executed" << std::endl;
+    
+    // Close the created outfile
+    outFile.close();
 }

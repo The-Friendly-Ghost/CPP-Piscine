@@ -6,7 +6,7 @@
 #    By: cpost <cpost@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/03/09 13:39:37 by cpost         #+#    #+#                  #
-#    Updated: 2023/03/14 13:14:11 by cpost         ########   odam.nl          #
+#    Updated: 2023/03/14 14:58:33 by cpost         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #========= General variables =========#
 #=====================================#
 
-NAME = 28B_not_28C
+NAME = Intern
 OBJS_DIR = objs
 
 #=====================================#
@@ -26,7 +26,8 @@ SRCS = 	main.cpp\
 		AForm.cpp\
 		ShubberyCreationForm.cpp\
 		RobotomyRequestForm.cpp\
-		PresidentialPardonForm.cpp
+		PresidentialPardonForm.cpp\
+		Intern.cpp
 
 OBJS = $(SRCS:.c=.o)
 
