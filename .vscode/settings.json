@@ -72,5 +72,6 @@
 		"locale": "cpp",
 		"mutex": "cpp",
 		"ratio": "cpp"
-	}
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }
