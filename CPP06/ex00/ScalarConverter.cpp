@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Convert.cpp                                        :+:    :+:            */
+/*   ScalarConverter.cpp                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Convert.hpp"
+#include "ScalarConverter.hpp"
 #include <iostream>
 #include <sstream>
 #include <limits>
@@ -19,40 +19,40 @@
 //=== Constructors / Deconstructor ====//
 //=====================================//
 
-Convert::Convert(void) : 
+ScalarConverter::ScalarConverter(void) : 
 	mInput("0"),
 	mPrintDecimal("")
 {
-	// std::cout << "Convert constructor called" << std::endl;
+	// std::cout << "ScalarConverter constructor called" << std::endl;
 	formatString(this->mInput);
 }
 
-Convert::Convert(std::string input) :
+ScalarConverter::ScalarConverter(std::string input) :
 	mInput(input),
 	mPrintDecimal("")
 {
-	// std::cout << "Convert constructor called" << std::endl;
+	// std::cout << "ScalarConverter constructor called" << std::endl;
 	formatString(mInput);
 }
 
-Convert::Convert(const Convert &copy) :
+ScalarConverter::ScalarConverter(const ScalarConverter &copy) :
 	mInput(copy.getInput())
 {
-	std::cout << "Convert copy constructor called" << std::endl;
+	std::cout << "ScalarConverter copy constructor called" << std::endl;
 }
 
-Convert::~Convert(void)
+ScalarConverter::~ScalarConverter(void)
 {
-	// std::cout << "Convert destructor called" << std::endl;
+	// std::cout << "ScalarConverter destructor called" << std::endl;
 }
 
 //=====================================//
 //======== Operator Overloads =========//
 //=====================================//
 
-Convert	&Convert::operator=(const Convert &rhs)
+ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &rhs)
 {
-	std::cout << "Convert assignment operator called" << std::endl;
+	std::cout << "ScalarConverter assignment operator called" << std::endl;
 	this->mInput = rhs.getInput();
 	return (*this);
 }
@@ -61,17 +61,17 @@ Convert	&Convert::operator=(const Convert &rhs)
 //======== Getters / Setters ==========//
 //=====================================//
 
-std::string Convert::getInput(void) const
+std::string ScalarConverter::getInput(void) const
 {
 	return (this->mInput);
 }
 
-void	Convert::setDecimal(void)
+void	ScalarConverter::setDecimal(void)
 {
 	this->mPrintDecimal = ".0";
 }
 
-std::string	Convert::getDecimal(void) const
+std::string	ScalarConverter::getDecimal(void) const
 {
 	return (this->mPrintDecimal);
 }
@@ -80,7 +80,7 @@ std::string	Convert::getDecimal(void) const
 //============= Exceptions ============//
 //=====================================//
 
-const char  *Convert::ImpossibleString::what (void) const throw()
+const char  *ScalarConverter::ImpossibleString::what (void) const throw()
 {
     return (NULL);
 }
@@ -89,7 +89,7 @@ const char  *Convert::ImpossibleString::what (void) const throw()
 //================ Other ==============//
 //=====================================//
 
-void	Convert::validateString(std::string &input)
+void	ScalarConverter::validateString(std::string &input)
 {
 	int		points;
 	int		nonDigit;
@@ -116,7 +116,7 @@ void	Convert::validateString(std::string &input)
 		this->setDecimal();
 }
 
-void	Convert::formatString(std::string input)
+void	ScalarConverter::formatString(std::string input)
 {
 	long double			ld;
 	std::stringstream	sstream;
@@ -148,7 +148,7 @@ void	Convert::formatString(std::string input)
 	}
 }
 
-void	Convert::convertString(long double ld)
+void	ScalarConverter::convertString(long double ld)
 {
 	//=== Char Conversion ===//
 	if ((ld <= 32 && ld >= 0) || ld == 127)

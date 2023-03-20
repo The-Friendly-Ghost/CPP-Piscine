@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Convert.hpp                                        :+:    :+:            */
+/*   ScalarConverter.hpp                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONVERT_HPP
-#define CONVERT_HPP
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
 #include <iostream>
 #include <string>
 
-class Convert
+class ScalarConverter
 {
 private:
 	std::string	mInput;
@@ -30,12 +30,12 @@ private:
 	void		validateString(std::string &input);
 
 public:
-	Convert(void);
-	Convert(std::string data);
-	Convert(const Convert &copy);
-	~Convert();
+	ScalarConverter(void);
+	ScalarConverter(std::string data);
+	ScalarConverter(const ScalarConverter &copy);
+	~ScalarConverter();
 
-	Convert	&operator=(const Convert &rhs);
+	ScalarConverter	&operator=(const ScalarConverter &rhs);
 
 	class	ImpossibleString : public std::exception
 	{

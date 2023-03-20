@@ -6,7 +6,7 @@
 #    By: cpost <cpost@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/03/09 13:39:37 by cpost         #+#    #+#                  #
-#    Updated: 2023/03/20 10:33:17 by cpost         ########   odam.nl          #
+#    Updated: 2023/03/20 13:32:03 by cpost         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS_DIR = objs
 #=====================================#
 
 SRCS = 	main.cpp\
-		Convert.cpp
+		ScalarConverter.cpp
 
 OBJS = $(SRCS:.c=.o)
 
