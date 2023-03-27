@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   iter.hpp                                           :+:    :+:            */
+/*   Array.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/21 15:07:43 by cpost         #+#    #+#                 */
-/*   Updated: 2023/03/22 12:12:06 by cpost         ########   odam.nl         */
+/*   Created: 2023/03/27 12:00:01 by cpost         #+#    #+#                 */
+/*   Updated: 2023/03/27 12:07:49 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
-#include <iostream>
+#include "Array.tpp"
 
-template<typename V>
-void    testFunction(V &value)
+class Array
 {
-    std::cout << value << std::endl;
-}
+private:
+    /* data */
+public:
+    Array(void);
+    Array(unsigned int n);
+    Array(const Array &copy);
+    ~Array();
 
-template<typename T, typename N, typename F>
-void    iter(T *array, N length, F func)
-{
-    for (N i = 0; i < length; i++)
-        func(array[i]);
-}
+    Array   &operator=(const Array &rhs);
 
+    unsigned int    size(void) const;
+};
 
 #endif
