@@ -6,7 +6,7 @@
 #    By: cpost <cpost@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/04/03 14:13:00 by cpost         #+#    #+#                  #
-#    Updated: 2023/04/04 14:39:17 by cpost         ########   odam.nl          #
+#    Updated: 2023/04/06 20:04:30 by cpost         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ OBJS_DIR = objs
 #============ Input files ============#
 #=====================================#
 
-SRCS = 	main.cpp
+SRCS = 	main.cpp\
+		Span.cpp
 
 OBJS = $(SRCS:.c=.o)
 
