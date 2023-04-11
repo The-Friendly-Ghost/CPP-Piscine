@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/04 14:39:58 by cpost         #+#    #+#                 */
-/*   Updated: 2023/04/06 20:29:11 by cpost         ########   odam.nl         */
+/*   Updated: 2023/04/11 13:42:35 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <vector>
 #include <algorithm>
 #include <limits.h>
+#include <iostream>
 
 //=====================================//
 //=== Constructors / Deconstructor ====//
@@ -82,6 +83,18 @@ void    Span::addNumber(int toAdd)
     if (this->mIntVec.size() >= this->mMaxInt)
         throw (MaxSize());
     this->mIntVec.push_back(toAdd);
+}
+
+void    Span::addManyNumbers(unsigned int amount)
+{
+    if (amount > this->mMaxInt)
+        throw(MaxSize());
+
+    std::vector<int>    tempArr(amount, 0);
+    srand(time(NULL));
+    std::generate_n(tempArr.begin(), amount, rand);
+
+    this->mIntVec.insert(this->mIntVec.begin(), tempArr.begin(), tempArr.end());
 }
 
 unsigned int    Span::shortestSpan(void)
