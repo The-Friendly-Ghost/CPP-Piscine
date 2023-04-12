@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/11 15:12:26 by cpost         #+#    #+#                 */
-/*   Updated: 2023/04/11 15:41:50 by cpost         ########   odam.nl         */
+/*   Updated: 2023/04/12 14:08:49 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ public:
     {
         iterator    it = &this->top();
 
-        for (unsigned int i = 1; i < this->size(): i++)
+        for (unsigned int i = 1; i < this->size(); i++)
             it--;
         return (it);
     }
