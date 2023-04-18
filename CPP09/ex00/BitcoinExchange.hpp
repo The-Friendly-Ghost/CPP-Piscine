@@ -6,35 +6,33 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/14 15:56:24 by cpost         #+#    #+#                 */
-/*   Updated: 2023/04/14 16:34:59 by cpost         ########   odam.nl         */
+/*   Updated: 2023/04/18 15:46:33 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
+
 #include <map>
 #include <fstream>
+#include <time.h>
 
 class Btc
 {
 private:
+    std::ifstream               &rawDataStr;
+    // std::map<time_t, float>     data;
 
-/////// Private Variables ////////
-    typedef struct s_date {
-        int day;
-        int month
-        int year;
-    }   t_date ;
+    Btc(void);
+    void    parseCsv(void);
+    // void    createElement(std::map<time_t, float> &data);
 
-    std::map<t_date, float>    data;
-
-/////// Private Functions ////////
-        Btc( void );
-void    parseCsv( void );
 
 public:
-    Btc( std::fstream file );
-    Btc( const Btc &copy );
-    Btc &operator=( const Btc &rhs );
-    ~Btc( void );
-
-    
+    Btc(std::ifstream &data);
+    // Btc(const Btc &copy);
+    // Btc &operator=(const Btc &rhs);
+    ~Btc(void);
 };
+
+#endif
