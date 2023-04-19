@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/14 15:56:24 by cpost         #+#    #+#                 */
-/*   Updated: 2023/04/18 15:46:33 by cpost         ########   odam.nl         */
+/*   Updated: 2023/04/19 15:54:43 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,32 @@
 
 #include <map>
 #include <fstream>
-#include <time.h>
 
 class Btc
 {
 private:
+    struct s_date {
+        int year;
+        int month;
+        int day;
+
+        bool operator<(s_date const & other) const 
+        {
+            if (this->year != other.year)
+                return (this->year < other.year);
+            else if (this->month != other.month)
+                return (this->month < other.month);
+            else
+                return (this->day < other.day);
+        }
+    };
+
     std::ifstream               &rawDataStr;
-    // std::map<time_t, float>     data;
+    std::map<s_date, float>     data;
 
     Btc(void);
     void    parseCsv(void);
+    void    checkValidFile(std::string line);
     // void    createElement(std::map<time_t, float> &data);
 
 
