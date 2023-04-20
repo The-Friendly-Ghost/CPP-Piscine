@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/14 15:56:24 by cpost         #+#    #+#                 */
-/*   Updated: 2023/04/19 15:54:43 by cpost         ########   odam.nl         */
+/*   Updated: 2023/04/20 17:12:39 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ private:
 
     std::ifstream               &rawDataStr;
     std::map<s_date, float>     data;
+    int                         YearHighest;
+    int                         YearLowest;
 
     Btc(void);
     void    parseCsv(void);
@@ -49,6 +51,8 @@ public:
     // Btc(const Btc &copy);
     // Btc &operator=(const Btc &rhs);
     ~Btc(void);
+
+    float   getValue(int year, int month, int day);
 };
 
 #endif
