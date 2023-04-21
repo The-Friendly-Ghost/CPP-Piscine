@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/14 15:56:14 by cpost         #+#    #+#                 */
-/*   Updated: 2023/04/20 22:31:16 by cpost         ########   odam.nl         */
+/*   Updated: 2023/04/21 15:39:23 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,19 @@ Btc::Btc(std::ifstream &data) :
     this->rawDataStr.close();
 }
 
-// Btc::Btc(const Btc &copy)
-// {
-// }
+Btc::Btc(const Btc &copy) :
+    rawDataStr(copy.rawDataStr)
+{
+    *this = copy;
+}
 
-// Btc &Btc::operator=(const Btc &rhs)
-// {
-// }
+Btc &Btc::operator=(const Btc &rhs)
+{
+    this->data = rhs.data;
+    this->YearHighest = rhs.YearHighest;
+    this->YearLowest = rhs.YearLowest;
+    return (*this);
+}
 
 Btc::~Btc(void)
 {
@@ -73,7 +79,7 @@ void    Btc::checkValidFile(std::string line)
 void    Btc::parseCsv(void)
 {
     std::string line;
-    float       value;
+    double      value;
     s_date      add;
 
     std::getline(this->rawDataStr, line);
@@ -86,7 +92,7 @@ void    Btc::parseCsv(void)
         std::istringstream(line.substr(5, 2)) >> add.month;
         std::istringstream(line.substr(8, 2)) >> add.day;
         std::istringstream(line.substr(11, std::string::npos)) >> value;
-        this->data.insert(std::pair<s_date, float>(add, value));
+        this->data.insert(std::pair<s_date, double>(add, value));
 
         //Saving the lowest year in the data and the highest year. By doing
         //this, we are able to do way less calculations later on because we 
@@ -98,9 +104,9 @@ void    Btc::parseCsv(void)
 	}
 }
 
-float   Btc::getValue(int year, int month, int day)
+double  Btc::getValue(int year, int month, int day)
 {
-    std::map<s_date, float>::iterator   it;
+    std::map<s_date, double>::iterator  it;
     bool                                matchFound;
 
     // First, let's look for the correct year.

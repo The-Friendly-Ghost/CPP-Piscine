@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/14 15:56:24 by cpost         #+#    #+#                 */
-/*   Updated: 2023/04/20 17:12:39 by cpost         ########   odam.nl         */
+/*   Updated: 2023/04/21 15:34:48 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,21 @@ private:
     };
 
     std::ifstream               &rawDataStr;
-    std::map<s_date, float>     data;
+    std::map<s_date, double>    data;
     int                         YearHighest;
     int                         YearLowest;
 
     Btc(void);
     void    parseCsv(void);
     void    checkValidFile(std::string line);
-    // void    createElement(std::map<time_t, float> &data);
-
 
 public:
     Btc(std::ifstream &data);
-    // Btc(const Btc &copy);
-    // Btc &operator=(const Btc &rhs);
+    Btc(const Btc &copy);
+    Btc &operator=(const Btc &rhs);
     ~Btc(void);
 
-    float   getValue(int year, int month, int day);
+    double  getValue(int year, int month, int day);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/14 15:55:52 by cpost         #+#    #+#                 */
-/*   Updated: 2023/04/20 22:25:40 by cpost         ########   odam.nl         */
+/*   Updated: 2023/04/21 15:42:47 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdexcept>
 #include "BitcoinExchange.hpp"
 #include <limits>
+#include <stdlib.h>
 
 static bool	fileExists(const char *str)
 {
@@ -70,43 +71,28 @@ static void verifyDate(std::string &line)
     }
 }
 
-static int  stringToInt(std::string &line)
+static double  stringToInt(std::string &line)
 {
-    int result = 0;
-    int i = 13;
-    int sign = 1;
-    
     if (line.length() < 14)
     {
         std::cout << "Error: bad input => " << line;
         throw (std::invalid_argument(""));
     }
-    
-    if (line[i] == '-') {
-        sign = -1;
-        i++;
-    }
-    while (i < static_cast<int>(line.length()))
+    if (line[13] == '-')
     {
-        if (std::isdigit(line[i])) 
+        if (std::isdigit(line[14]))
         {
-            int digit = line[i] - '0';
-            if (result > std::numeric_limits<int>::max() / 10 || 
-                (result == std::numeric_limits<int>::max() / 10 && digit > std::numeric_limits<int>::max() % 10)) 
-            {
-                std::cout << "Error: bad input => " << line;
-                throw (std::invalid_argument(""));
-            }
-            result = result * 10 + digit;
-        } 
-        else 
-        {
-            std::cout << "Error: bad input => " << line;
+            std::cout << "Error: Not a positive number.";
             throw (std::invalid_argument(""));
         }
-        i++;
     }
-    result *= sign;
+    else if (!std::isdigit(line[13]))
+    {
+        std::cout << "Error: bad input => " << line;
+        throw (std::invalid_argument(""));
+    }
+
+    double result = atof(line.substr(13, std::string::npos).c_str());
     if (result < 0)
     {
         std::cout << "Error: Not a positive number.";
@@ -120,7 +106,7 @@ static int  stringToInt(std::string &line)
     return (result);
 }
 
-static float    matchDate(std::string &line, Btc &data)
+static double    matchDate(std::string &line, Btc &data)
 {
     int year;
     int month;
@@ -135,8 +121,8 @@ static float    matchDate(std::string &line, Btc &data)
 static void	parseInput(std::ifstream &input, Btc &data)
 {
     std::string	line;
-    float       multiply;
-    float       btcPrice;
+    double      multiply;
+    double      btcPrice;
 
     std::getline(input, line);
     if (line != "date | value")
@@ -148,7 +134,9 @@ static void	parseInput(std::ifstream &input, Btc &data)
             ::verifyDate(line);
             multiply = ::stringToInt(line);
             btcPrice = ::matchDate(line, data);
-            std::cout << btcPrice * multiply << std::endl;
+            std::cout << line.substr(0, 4) << "-" << line.substr(5, 2);
+            std::cout << "-" << line.substr(8, 2) << " => " << multiply;
+            std::cout << " = " << btcPrice * multiply << std::endl;
         }
         catch(const std::exception& e)
         {
