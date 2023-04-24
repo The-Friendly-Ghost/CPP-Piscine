@@ -6,9 +6,12 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 07:14:17 by cpost         #+#    #+#                 */
-/*   Updated: 2023/04/21 08:06:47 by cpost         ########   odam.nl         */
+/*   Updated: 2023/04/24 10:06:53 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef RPN_HPP
+#define RPN_HPP
 
 #include <deque>
 
@@ -31,3 +34,5 @@ public:
     void    printResult(void);
     void	printAll(void);
 };
+
+#endif
