@@ -6,7 +6,7 @@
 /*   By: cpost <cpost@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 09:22:34 by cpost         #+#    #+#                 */
-/*   Updated: 2023/04/24 21:02:00 by cpost         ########   odam.nl         */
+/*   Updated: 2023/04/24 21:04:05 by cpost         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,9 @@ void    PmergeMe::mergeSortList(std::list<int>& input)
     if (input.size() <= 1)
         return;
 
-    std::list<int> left, right, result;
+    std::list<int> left;
+    std::list<int> right;
+    std::list<int> result;
     std::list<int>::iterator it = input.begin();
 
     for (std::size_t i = 0; i < input.size() / 2; ++i)
